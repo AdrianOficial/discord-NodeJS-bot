@@ -6,3 +6,4 @@ Ce am terminat:<br>
 - [x] Comenzile funcționează printr-un prefix setat de tine în variabila `const prefix="!"`<br>
 - [x] Comanda avatar
 - [x] Comanda `idle`.Dacă ai gradul de `ADMINISTRATOR` vei putea dirija botul în așa fel încât statusul la bot să se seteze automat pe IDLE.Dacă nu ai acest grad, vei primii un mesaj de la bot cu mesajul `nu ai functia de Administrator`
+- [x] Funcția `guildMemberAdd`.Adică atunci când un jucător va intra pe server o să se ducă pe canalul `welcome` care apropo se poate modifica de aici: `ch => ch.name === 'welcome'`.
