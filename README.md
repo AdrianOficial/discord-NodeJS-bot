@@ -4,3 +4,5 @@
 Ce am terminat:<br>
 - [x] Set Activity la bot<br>
 - [x] Comenzile funcționează printr-un prefix setat de tine în variabila `const prefix="!"`<br>
+- [x] Comanda avatar
+- [x] Comanda `idle`.Dacă ai gradul de `ADMINISTRATOR` vei putea dirija botul în așa fel încât statusul la bot să se seteze automat pe IDLE.Dacă nu ai acest grad, vei primii un mesaj de la bot cu mesajul `nu ai functia de Administrator`
