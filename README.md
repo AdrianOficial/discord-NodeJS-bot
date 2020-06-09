@@ -16,7 +16,7 @@ Ce am terminat:<br>
 - [x] Comanda `prost`.
 <li>
   
-<h1>Cum îl instalez?<h1>
+<h1>Cum îl instalez?</h1>
   1. Instalezi NodeJS de pe site-ul official.Îți las un link: https://nodejs.org/en/download/.Este foarte simplu.Vei selecta versiunea Windows.<br>
   2. După ce ai instalat NodeJS vei intra în CMD și vei intra în folderul unde ai descărcat proiectul.<br>
   3. După ce ai intrat în proiect vei scrie următoarea comandă(în cmd) : `npm init -y` , `npm install discord.js --save`, `npm install fs --save`<br>
