@@ -14,3 +14,13 @@ Ce am terminat:<br>
 - [x] Funcția `guildMemberAdd`.Adică atunci când un jucător va intra pe server o să se ducă pe canalul `welcome` care apropo se poate modifica de aici: `ch => ch.name === 'welcome'`.<br>
 - [x] Sistemul de loguri.La fiecare comandă folosită (cele importante) se va creea un fișier numit `logs.txt`.Vă recomand să aveți programul `Notepad++` pentru a putea vedea logurile aranjate cum trebuie.<br>
 - [x] Comanda `prost`.
+<li>
+  
+<h1>Cum îl instalez?<h1>
+  1. Instalezi NodeJS de pe site-ul official.Îți las un link: https://nodejs.org/en/download/.Este foarte simplu.Vei selecta versiunea Windows.<br>
+  2. După ce ai instalat NodeJS vei intra în CMD și vei intra în folderul unde ai descărcat proiectul.<br>
+  3. După ce ai intrat în proiect vei scrie următoarea comandă(în cmd) : `npm init -y` , `npm install discord.js --save`, `npm install fs --save`<br>
+  4. Veți intra în `index.js` și veți modifica tokenul `const botToken`.<br>
+  5. După ce ați făcut toate astea veți tasta node index.js<br>
+  Dacă aveți alte probleme contactați-mă pe contul meu de discord: Adryan#0870<br>
+    
