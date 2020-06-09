@@ -46,7 +46,7 @@ client.on('message', message => {
 			fs.appendFileSync('logs.txt', `${message.member} a folosit comanda !idle
 `, function (err) {
 				if (err) return console.log(err);
-				console.log(`${message.member} a încercat să folosească comanda !idle > helloworld.txt `);
+				console.log(`${message.member} a încercat să folosească comanda !idle > logs.txt `);
 			});
 		}else{
 			message.channel.send(`${message.member} nu ai functia de Administrator`);
@@ -54,7 +54,7 @@ client.on('message', message => {
 			fs.appendFileSync('logs.txt', `${message.member} a încercat să folosească comanda !idle
 `, function (err) {
 				if (err) return console.log(err);
-				console.log(`${message.member} a încercat să folosească comanda !idle > helloworld.txt `);
+				console.log(`${message.member} a încercat să folosească comanda !idle > logs.txt `);
 			});
 		}
 	};
