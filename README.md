@@ -2,9 +2,9 @@
 În primul rând, vreau să spun că ceea ce am făcut aici este doar pentru a putea practica noduri. Vreau să învăț prin această metodă.
 
 Ce urmează să fac: 
-- [] Sistemul de ban
-- [] Sistemul de kick
-- [] Sistemul de mute
+- [ ] Sistemul de ban
+- [ ] Sistemul de kick
+- [ ] Sistemul de mute
 
 Ce am terminat:<br>
 - [x] Set Activity la bot<br>
