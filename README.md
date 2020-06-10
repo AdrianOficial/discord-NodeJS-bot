@@ -23,5 +23,5 @@ Ce am terminat:<br>
   Dacă aveți alte probleme contactați-mă pe contul meu de discord: Adryan#0870<br>
 <li>
   <h1>Video Tutorial</h1>
-  <a href="https://www.youtube.com/watch?v=lXWJKSfSTTU">Youtube / Windows</a>
-  Youtube / Ubuntu / Debian
+  Tutorial pentru <a href="https://www.youtube.com/watch?v=lXWJKSfSTTU">Youtube / Windows</a><br>
+  Tutorial pentru Youtube / Ubuntu / Debian
