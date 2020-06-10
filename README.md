@@ -21,4 +21,7 @@ Ce am terminat:<br>
   4. Veți intra în index.js și veți modifica tokenul const botToken.<br>
   5. După ce ați făcut toate astea veți tasta node index.js<br>
   Dacă aveți alte probleme contactați-mă pe contul meu de discord: Adryan#0870<br>
-    
+<li>
+  <h1>Video Tutorial</h1>
+  <a href="https://www.youtube.com/watch?v=lXWJKSfSTTU">Youtube / Windows</a>
+  Youtube / Ubuntu / Debian
