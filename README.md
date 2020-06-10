@@ -2,9 +2,7 @@
 În primul rând, vreau să spun că ceea ce am făcut aici este doar pentru a putea practica noduri. Vreau să învăț prin această metodă.
 
 Ce urmează să fac: 
-- [ ] Sistemul de ban
-- [ ] Sistemul de kick
-- [ ] Sistemul de mute
+-
 
 Ce am terminat:<br>
 - [x] Set Activity la bot<br>
@@ -15,6 +13,7 @@ Ce am terminat:<br>
 - [x] Sistemul de loguri.La fiecare comandă folosită (cele importante) se va creea un fișier numit `logs.txt`.Vă recomand să aveți programul `Notepad++` pentru a putea vedea logurile aranjate cum trebuie.<br>
 - [x] Comanda `prost`.
 - [x] Adăugată comanda `restart`, pe care doar Administratorii setați în variabila `const admin` o pot executa.
+- [x] Adăugată comanda `kick` și `ban`.Ca să puteți da kick sau ban trebuie să aveți într-un rol permisiunea `BAN_MEMBERS` și `KICK_MEMBERS` activată
 <li>
   
 <h1>Cum îl instalez?</h1>
