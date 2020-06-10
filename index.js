@@ -1,7 +1,7 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.Xt-5aA.Yr_nOHhZhXtuKzp9G4u-zxzdLoY";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuBotw.oTmRjHPzMb-sCbMjdGZde65OM1s";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
 const activity = "invat NodeJS";
@@ -71,6 +71,34 @@ client.on('message', message => {
 		}
 	};
 
+
+	if (command === 'ban') {
+		if(args[0]) {
+			var membru = message.mentions.members.first();
+			if(message.member.hasPermission('BAN_MEMBERS')) {
+				membru.ban().then((member) => {
+					message.channel.send(`:wave: ${member.displayName} a fost banat cu succes de către :point_right: ${message.member}`);
+				});
+			}
+		}else{
+			message.channel.send(`Folosește comanda !ban {nume} pentru a bana un membru.`);
+		};
+
+	};
+
+	if (command === 'kick') {
+		if(args[0]) {
+			var membru = message.mentions.members.first();
+			if(message.member.hasPermission('KICK_MEMBERS')) {
+				membru.kick().then((member) => {
+					message.channel.send(`:wave: ${member.displayName} a primit kick de la :point_right: ${message.member}`);
+				});
+			}
+		}else{
+			message.channel.send(`Folosește comanda !kick {nume} pentru a putea da kick unui membru.`);
+		};
+	};
+	
 });
 
 client.on('guildMemberAdd', member => {
