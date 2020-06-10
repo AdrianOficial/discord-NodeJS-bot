@@ -8,8 +8,7 @@ const activity = "invat NodeJS";
 const fs = require('fs');
 const client = new Discord.Client();
 const admin = [
-	"457785373523836929",
-	"304549891055681537"
+	"457785373523836929"
 ];
 
 client.on('ready', () => {
