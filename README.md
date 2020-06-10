@@ -14,6 +14,7 @@ Ce am terminat:<br>
 - [x] Funcția `guildMemberAdd`.Adică atunci când un jucător va intra pe server o să se ducă pe canalul `welcome` care apropo se poate modifica de aici: `ch => ch.name === 'welcome'`.<br>
 - [x] Sistemul de loguri.La fiecare comandă folosită (cele importante) se va creea un fișier numit `logs.txt`.Vă recomand să aveți programul `Notepad++` pentru a putea vedea logurile aranjate cum trebuie.<br>
 - [x] Comanda `prost`.
+- [x] Adăugată comanda `restart`, pe care doar Administratorii setați în variabila `const admin` o pot executa.
 <li>
   
 <h1>Cum îl instalez?</h1>
