@@ -1,21 +1,33 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.Xt-oTQ.4Ii1QpXG8fV627xDUTlEUWtU3Vc";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.Xt-5aA.Yr_nOHhZhXtuKzp9G4u-zxzdLoY";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
+const activity = "invat NodeJS";
 const fs = require('fs');
 const client = new Discord.Client();
+const admin = [
+	"457785373523836929",
+	"304549891055681537"
+];
 
 client.on('ready', () => {
 	console.log('Botul este acum online');
-	client.user.setActivity("invat NodeJS");
-
+	client.user.setActivity(activity);
 });
 
 client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(' ');
 	const command = args.shift().toLowerCase();
+
+	if(command === 'restart') {
+		if(admin.includes(message.author["id"])) {
+			message.channel.send('Resetting...').then(msg => client.destroy()).then(() => client.login(botToken)).then(client.user.setActivity(activity));
+		}else{
+			message.channel.send(`N-ai admin`);
+		}
+	}
 
 	if (command === 'prost') {
 		if(args[0]) {
