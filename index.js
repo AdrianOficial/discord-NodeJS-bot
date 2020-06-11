@@ -1,7 +1,7 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuHl2Q.FjNtXB4Y_7nGJpdHNTLo7IDgFEQ";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuHodw.EBvAGqThV_r7b0XkSnAz-QM1Fi8";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
 const activity = "invat NodeJS";
@@ -13,7 +13,7 @@ const admin = [
 	"304549891055681537"
 ];
 
-const blacklist = ['pula', 'pizda', 'coaie', 'muie'];
+const blacklist = ['pula', 'pizda', 'coaie', 'muie', 'pulă', 'pizdă'];
 
 client.on('ready', () => {
 	console.log('Botul este acum online');
@@ -27,7 +27,6 @@ client.on('message', message => {
 	for (let i = 0; i < blacklist.length; i++) {
 		const elem = blacklist[i];
 		if (message['content'].toLowerCase().includes(elem)) message.delete().then(message.channel.send(`${message.author} ai grijă la limbaj!`));
-
 	}
 
 	if (message.author.bot) return;
@@ -54,6 +53,43 @@ client.on('message', message => {
 			message.channel.send('Resetting...').then(msg => client.destroy()).then(() => client.login(botToken)).then(client.user.setActivity(activity));
 		}else{
 			message.channel.send(`N-ai admin`);
+		}
+	}
+
+	if(command === 'duma') {
+		fs.readFile('dume.json', (err, data) => {
+		    if (err) throw err;
+		    let datas = JSON.parse(data);
+		    const count = datas.dume.push();
+		    const randomDuma = Math.floor(Math.random() * Math.floor(count));
+		    if(args[0]) {
+		    	const name = message.mentions.users.first();
+		    	message.channel.send(`${name} ${datas.dume[randomDuma]}`);
+		    }else{
+		    	message.channel.send(`${message.author} ${datas.dume[randomDuma]}`);
+		    }
+		});
+	}
+
+	if(command === 'adduma') {
+		if(admin.includes(message.author["id"])) {
+			var duma = message.content.slice(prefix.length).split("adduma")[1];
+			fs.readFile('dume.json', 'utf8', function (err, data) {
+				if (err) {
+					console.log(err)
+				}else{
+					const file = JSON.parse(data);
+					file.dume.push(duma);
+					const json = JSON.stringify(file);
+					fs.writeFile('dume.json', json, 'utf8', function(err){
+						if(err){ 
+							console.log(err);
+						}else{
+							message.channel.send(`Duma a fost adăugată cu succes`);
+						}
+					});
+				}
+			});
 		}
 	}
 
