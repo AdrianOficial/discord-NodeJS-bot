@@ -1,12 +1,13 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuBotw.oTmRjHPzMb-sCbMjdGZde65OM1s";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuHbNg.ljSs8tBtMGpMPvHJ9K9kruercI8";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
 const activity = "invat NodeJS";
 const fs = require('fs');
 const client = new Discord.Client();
+let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
 const admin = [
 	"457785373523836929",
 	"304549891055681537"
@@ -20,6 +21,24 @@ client.on('ready', () => {
 client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(' ');
 	const command = args.shift().toLowerCase();
+	if (message.author.bot) return;
+	
+	if (!db[message.author.id]) db[message.author.id] = {
+		xp: 0,
+		level: 0
+	};
+
+	db[message.author.id].xp++;
+	let userInfo = db[message.author.id];
+	if(userInfo.xp > userInfo.level * 10) {
+		userInfo.level++
+		userInfo.xp = 0
+		message.channel.send(`${message.author} are acum level ${userInfo.level}`);
+	}
+
+	fs.writeFile("./database.json", JSON.stringify(db), (x) => {
+		if (x) console.error(x)
+	});
 
 	if(command === 'restart') {
 		if(admin.includes(message.author["id"])) {
