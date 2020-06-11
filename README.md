@@ -14,6 +14,7 @@ Ce am terminat:<br>
 - [x] Adăugată comanda `kick` și `ban`.Ca să puteți da kick sau ban trebuie să aveți într-un rol permisiunea `BAN_MEMBERS` și `KICK_MEMBERS` activată.
 - [x] Adăugat un sistem de `level`.Este un sistem basic cu XP, nu este cine știe ce, însă este foarte bun pentru început.Sistemul funcționează foarte bine.Conceptul este că levelul pe care îl ai se înmulțește cu 10.Atunci când XP-ul o să ajungă mai mare de cât levelul înmulțit cu 10, respectivul o să aibe level up
 - [x] Adăugat un sistem de filtrarea cuvintelor vulgare.Alte cuvinte le puteți adăuga voi în variabila `const blacklist`
+- [x] A fost adăugat un sitem de `dume` destul de complex.Ce înseamnă un sistem de dume? Voi veți adăuga dume(rekt-uri etc) prin comanda `/adduma [args]` (atenție trebuie să aveți administrator din funcția `const admin`).O dată ce ați adăugat duma(rekt-ul etc), jucătorii vor folosii comanda `/duma` sau `/duma @nume`. Dacă o să folosiți comanda `/duma` simplu fără niciun argument, botul o să vă dea vouă rekt-ul.Dacă adăugați cu argument, o să dea duma respectivului.
 
 <li>  
 <h1>Cum îl instalez?</h1>
