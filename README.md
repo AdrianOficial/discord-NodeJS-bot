@@ -12,6 +12,7 @@ Ce am terminat:<br>
 - [x] Comanda `prost`.
 - [x] Adăugată comanda `restart`, pe care doar Administratorii setați în variabila `const admin` o pot executa.
 - [x] Adăugată comanda `kick` și `ban`.Ca să puteți da kick sau ban trebuie să aveți într-un rol permisiunea `BAN_MEMBERS` și `KICK_MEMBERS` activată.
+- [x] Adăugat un sistem de `level`.Este un sistem basic cu XP, nu este cine știe ce, însă este foarte bun pentru început.Sistemul funcționează foarte bine.Conceptul este că levelul pe care îl ai se înmulțește cu 10.Atunci când XP-ul o să ajungă mai mare de cât levelul înmulțit cu 10, respectivul o să aibe level up
 
 <li>  
 <h1>Cum îl instalez?</h1>
