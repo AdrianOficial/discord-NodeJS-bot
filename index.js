@@ -1,7 +1,7 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuHbNg.ljSs8tBtMGpMPvHJ9K9kruercI8";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuHl2Q.FjNtXB4Y_7nGJpdHNTLo7IDgFEQ";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
 const activity = "invat NodeJS";
@@ -13,6 +13,8 @@ const admin = [
 	"304549891055681537"
 ];
 
+const blacklist = ['pula', 'pizda', 'coaie', 'muie'];
+
 client.on('ready', () => {
 	console.log('Botul este acum online');
 	client.user.setActivity(activity);
@@ -21,6 +23,13 @@ client.on('ready', () => {
 client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(' ');
 	const command = args.shift().toLowerCase();
+
+	for (let i = 0; i < blacklist.length; i++) {
+		const elem = blacklist[i];
+		if (message['content'].toLowerCase().includes(elem)) message.delete().then(message.channel.send(`${message.author} ai grijă la limbaj!`));
+
+	}
+
 	if (message.author.bot) return;
 	
 	if (!db[message.author.id]) db[message.author.id] = {
