@@ -16,7 +16,7 @@ Ce am terminat:<br>
 - [x] Adăugat un sistem de filtrarea cuvintelor vulgare.Alte cuvinte le puteți adăuga voi în variabila `const blacklist`
 - [x] A fost adăugat un sitem de `dume` destul de complex.Ce înseamnă un sistem de dume? Voi veți adăuga dume(rekt-uri etc) prin comanda `/adduma [args]` (atenție trebuie să aveți administrator din funcția `const admin`).O dată ce ați adăugat duma(rekt-ul etc), jucătorii vor folosii comanda `/duma` sau `/duma @nume`. Dacă o să folosiți comanda `/duma` simplu fără niciun argument, botul o să vă dea vouă rekt-ul.Dacă adăugați cu argument, o să dea duma respectivului.
 
-<li>  
+<hr>  
 <h1>Cum îl instalez?</h1>
   1. Instalezi NodeJS de pe site-ul official.Îți las un link: https://nodejs.org/en/download/. Este foarte simplu.Vei selecta versiunea Windows (dacă folosești windows).<br>
   2. După ce ai instalat NodeJS vei intra în CMD și vei intra în folderul unde ai descărcat proiectul.<br>
@@ -24,7 +24,7 @@ Ce am terminat:<br>
   4. Veți intra în index.js și veți modifica tokenul const botToken.<br>
   5. După ce ați făcut toate astea veți tasta node index.js<br>
   Dacă aveți alte probleme contactați-mă pe contul meu de discord: Adryan#0870<br>
-<li>
+<hr>
   <h1>Video Tutorial</h1>
   Tutorial pentru <a href="https://www.youtube.com/watch?v=lXWJKSfSTTU">Youtube / Windows</a><br>
   Tutorial pentru Youtube / Ubuntu / Debian
