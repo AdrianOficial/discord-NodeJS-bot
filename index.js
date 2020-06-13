@@ -1,7 +1,7 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuHodw.EBvAGqThV_r7b0XkSnAz-QM1Fi8";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuR8wg.cSWvFVwYiZpvoGnVBBbhlLUm5a0";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
 const activity = "invat NodeJS";
@@ -12,6 +12,8 @@ const admin = [
 	"457785373523836929",
 	"304549891055681537"
 ];
+const http = require('http');
+const https = require('https');
 
 const blacklist = ['pula', 'pizda', 'coaie', 'muie', 'pulă', 'pizdă'];
 
@@ -71,6 +73,42 @@ client.on('message', message => {
 		});
 	}
 
+	if(command === 'cat') {
+		let client = http;
+		var url = 'http://api.thecatapi.com/v1/images/search';
+
+		client.get(url, (resp) => {
+			let data = '';
+			resp.on('data', (chunk) => {
+				data += chunk;
+			});
+			resp.on('end', () => {
+				var object = JSON.parse(data);
+				const attachment = new MessageAttachment(object[0].url);
+				message.channel.send(attachment);
+			});
+
+		});
+	}
+
+	if(command === 'dog') {
+		let client = https;
+		var url = 'https://api.thedogapi.com/v1/images/search';
+
+		client.get(url, (resp) => {
+			let data = '';
+			resp.on('data', (chunk) => {
+				data += chunk;
+			});
+			resp.on('end', () => {
+				var object = JSON.parse(data);
+				const attachment = new MessageAttachment(object[0].url);
+				message.channel.send(attachment);
+			});
+
+		});
+	}
+
 	if(command === 'adduma') {
 		if(admin.includes(message.author["id"])) {
 			var duma = message.content.slice(prefix.length).split("adduma")[1];
@@ -114,6 +152,7 @@ client.on('message', message => {
 			message.channel.send(attachment);
 		}
 	};
+
 
 	if (command === 'idle') {
 		if (message.member.hasPermission('ADMINISTRATOR')) {
