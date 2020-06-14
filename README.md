@@ -14,8 +14,13 @@ Ce am terminat:<br>
 - [x] Adăugată comanda `kick` și `ban`.Ca să puteți da kick sau ban trebuie să aveți într-un rol permisiunea `BAN_MEMBERS` și `KICK_MEMBERS` activată.
 - [x] Adăugat un sistem de `level`.Este un sistem basic cu XP, nu este cine știe ce, însă este foarte bun pentru început.Sistemul funcționează foarte bine.Conceptul este că levelul pe care îl ai se înmulțește cu 10.Atunci când XP-ul o să ajungă mai mare de cât levelul înmulțit cu 10, respectivul o să aibe level up
 - [x] Adăugat un sistem de filtrarea cuvintelor vulgare.Alte cuvinte le puteți adăuga voi în variabila `const blacklist`
-- [x] A fost adăugat un sitem de `dume` destul de complex.Ce înseamnă un sistem de dume? Voi veți adăuga dume(rekt-uri etc) prin comanda `/adduma [args]` (atenție trebuie să aveți administrator din funcția `const admin`).O dată ce ați adăugat duma(rekt-ul etc), jucătorii vor folosii comanda `/duma` sau `/duma @nume`. Dacă o să folosiți comanda `/duma` simplu fără niciun argument, botul o să vă dea vouă rekt-ul.Dacă adăugați cu argument, o să dea duma respectivului.
-- [x] Au fost adăugate comenzile `/cat` și `/dog`.
+- [x] A fost adăugat un sitem de `dume` destul de complex.Ce înseamnă un sistem de dume? Voi veți adăuga dume(rekt-uri etc) prin comanda `!adduma [args]` (atenție trebuie să aveți administrator din funcția `const admin`).O dată ce ați adăugat duma(rekt-ul etc), jucătorii vor folosii comanda `!duma` sau `!duma @nume`. Dacă o să folosiți comanda `!duma` simplu fără niciun argument, botul o să vă dea vouă rekt-ul.Dacă adăugați cu argument, o să dea duma respectivului.
+- [x] Au fost adăugate comenzile `!cat` și `!dog`.
+- [x] A fost adăugată comanda `!infobot`.Cu această comandă puteți vizualiza informațiile botului.
+- [x] A fost adăugată comanda `!ping`.Când veți scrie comanda !ping in chat, botul o să vă răspundă cu PONG alături de latență.
+- [x] A fost adăugată comanda `!purge`.Cu această comandă veți putea șterge un anumit număr de mesaje de pe chat.De exemplu !purge 5 și se vor șterge 5 mesaje.Ca să aveți acces la această comandă voi sau alt membru trebuie să aveți activat rolul de `MANAGE_MESSAGES`.
+- [x] A fost adăugată comanda `!strawpoll`.Cu această comandă veți creea strawpoll-uri.Jucătorii vor trebuii să reacționeze cu `👍` sau `👎`.Bine înțeles, toate aceste reacții se pot modifica din codul sursă.
+
 
 <hr>  
 <h1>Cum îl instalez?</h1>
