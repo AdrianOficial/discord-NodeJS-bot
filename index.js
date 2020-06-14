@@ -59,6 +59,7 @@ client.on('message', message => {
 		}
 	}
 
+
 	if(command === 'strawpoll') {
 		if (message.member.hasPermission('ADMINISTRATOR')) {
 			var strawpoll = message.content.slice(prefix.length).split("strawpoll")[1];
@@ -121,7 +122,6 @@ client.on('message', message => {
 		message.channel.send(Embed);
 		
 	}
-
 
 	if(command === 'duma') {
 		fs.readFile('dume.json', (err, data) => {
