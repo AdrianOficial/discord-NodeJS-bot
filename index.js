@@ -1,7 +1,7 @@
 'use strict';
 
 const Discord = require('discord.js');
-const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuR8wg.cSWvFVwYiZpvoGnVBBbhlLUm5a0";
+const botToken = "NzE2MTY2NTQ4NDE0NTI5NTU3.XuTmKg.ei0TEP5q4bK-18HzQEa8VLWi3cA";
 const prefix = "!";
 const { MessageAttachment } = require('discord.js');
 const activity = "invat NodeJS";
@@ -14,6 +14,7 @@ const admin = [
 ];
 const http = require('http');
 const https = require('https');
+const versiune = "0.48";
 
 const blacklist = ['pula', 'pizda', 'coaie', 'muie', 'pulă', 'pizdă'];
 
@@ -57,6 +58,70 @@ client.on('message', message => {
 			message.channel.send(`N-ai admin`);
 		}
 	}
+
+	if(command === 'strawpoll') {
+		if (message.member.hasPermission('ADMINISTRATOR')) {
+			var strawpoll = message.content.slice(prefix.length).split("strawpoll")[1];
+
+			const Embed = new Discord.MessageEmbed()
+			.setTitle(`ℹ️ ${strawpoll}`)
+			.setColor('#4086bb')
+			.setFooter(`${message.author.username} a creat acest strawpoll`);
+
+			message.delete().then(async () => {
+				await message.channel.send(Embed).then(async message=> {
+					await message.react('👍');
+					await message.react('👎');
+				});
+			});
+		}
+
+	}
+
+	if(command === 'purge') {
+		if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nu ai acces la această comandă");
+		if (!args[0]) return message.reply("Folosește: !purge <număr>");
+
+		if (Number.isInteger(parseInt(args[0]))) {
+			var amount = parseInt(args[0]);
+			if(amount > 0) {
+				message.channel.bulkDelete(amount).then(() => {
+					if (args[0] === '1') {
+						message.channel.send(`Au fost șterse ${args[0]} mesaje`).then(msg => msg.delete({ 
+							timeout: 3000 
+						}));
+					} else {
+						message.channel.send(`Au fost șterse ${args[0]} mesaje`).then(msg => msg.delete({
+							timeout: 3000
+						}));
+					};
+				});
+			}
+		}else{
+			console.log('Nu e număr');
+		}
+	}
+
+	if(command === 'ping') {
+		message.channel.send(`**PONG! 🏓 Latenţă: ${client.ws.ping}ms**`);
+	}
+
+	if (command === 'infobot') {
+		let Embed = new Discord.MessageEmbed()
+		.setTitle("Informații BOT")
+		.setThumbnail(client.user.displayAvatarURL())
+		.addField("Nume bot", client.user.username)
+		.addField("Creat pe data de", client.user.createdAt)
+		.addField("Creat folosind", "JavaScript, NodeJS, discord.js", true)
+		.addField("Creat de", "Adryan#0870", true)
+		.addField("Versiunea botului", versiune, true)
+		.setTimestamp()
+		.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
+		
+		message.channel.send(Embed);
+		
+	}
+
 
 	if(command === 'duma') {
 		fs.readFile('dume.json', (err, data) => {
@@ -155,7 +220,7 @@ client.on('message', message => {
 
 
 	if (command === 'idle') {
-		if (message.member.hasPermission('ADMINISTRATOR')) {
+		if(admin.includes(message.author["id"])) {
 			client.user.setStatus('idle');
 			console.log(`${message.member} a folosit comanda !idle`);
 			fs.appendFileSync('logs.txt', `${message.member} a folosit comanda !idle
