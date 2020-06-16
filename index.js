@@ -14,7 +14,7 @@ const admin = [
 ];
 const http = require('http');
 const https = require('https');
-const versiune = "0.48";
+const versiune = "0.56";
 
 const blacklist = ['pula', 'pizda', 'coaie', 'muie', 'pulă', 'pizdă'];
 
