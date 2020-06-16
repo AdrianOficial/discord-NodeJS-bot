@@ -20,7 +20,7 @@ Ce am terminat:<br>
 - [x] A fost adăugată comanda `!ping`.Când veți scrie comanda !ping in chat, botul o să vă răspundă cu PONG alături de latență.
 - [x] A fost adăugată comanda `!purge`.Cu această comandă veți putea șterge un anumit număr de mesaje de pe chat.De exemplu !purge 5 și se vor șterge 5 mesaje.Ca să aveți acces la această comandă voi sau alt membru trebuie să aveți activat rolul de `MANAGE_MESSAGES`.
 - [x] A fost adăugată comanda `!strawpoll`.Cu această comandă veți creea strawpoll-uri.Jucătorii vor trebuii să reacționeze cu `👍` sau `👎`.Bine înțeles, toate aceste reacții se pot modifica din codul sursă.
-
+- [x] Comenzile au fost mutate pe switch.
 
 <hr>  
 <h1>Cum îl instalez?</h1>
