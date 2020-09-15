@@ -21,6 +21,8 @@ Ce am terminat:<br>
 - [x] A fost adăugată comanda `!purge`.Cu această comandă veți putea șterge un anumit număr de mesaje de pe chat.De exemplu !purge 5 și se vor șterge 5 mesaje.Ca să aveți acces la această comandă voi sau alt membru trebuie să aveți activat rolul de `MANAGE_MESSAGES`.
 - [x] A fost adăugată comanda `!strawpoll`.Cu această comandă veți creea strawpoll-uri.Jucătorii vor trebuii să reacționeze cu `👍` sau `👎`.Bine înțeles, toate aceste reacții se pot modifica din codul sursă.
 - [x] Comenzile au fost mutate pe switch.
+- [x] A fost adăugată o nouă variabilă cu numele `const language`.În această variabilă vei seta limba pe care o vrei la bot, însă traducerile le veți face voi (în cazu în care vreți să folosiți serverul pe o comunitate internațională sau ceva de genu).Cel mai simplu ar fii să copiați fila `RO.json` din folderul `languages`, și să redenumiți pe ce limbă să fie.De exemplu dacă vreți engleză, redenumiți în `EN.json` iar în index.js la variabila `const language` după = respectiv `= "RO";` veți pune `= "EN"`, deoarece ruta a fost pusă deja singură prin funcția `let lang = fs.readFileSync('languages/'+language+'.json', 'utf8');`.Dacă doriți să vă faceți traduceri internațioanel și să vă folosiți de sistemul de traduceri voi explica cum puteți face asta.Variabila `let lang_t` se ocupă de asta! În fila json veți avea de exemplu `"tra1": "Traducerea ta",`, unde vei dorii să pui această traducere vei folosii `${lang_t['tra1']}`
+- [x] A fost scoasă funcția `guildMemberAdd`
 
 <hr>  
 <h1>Cum îl instalez?</h1>
