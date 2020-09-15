@@ -18,8 +18,13 @@ const versiune = "0.56";
 
 const blacklist = ['pula', 'pizda', 'coaie', 'muie', 'pulă', 'pizdă'];
 
+const language = "RO";
+
+let lang = fs.readFileSync('languages/'+language+'.json', 'utf8');
+let lang_t = JSON.parse(lang);
+
 client.on('ready', () => {
-	console.log('Botul este acum online');
+	console.log(lang_t['bot_online']);
 	client.user.setActivity(activity);
 });
 
@@ -29,7 +34,11 @@ client.on('message', message => {
 
 	for (let i = 0; i < blacklist.length; i++) {
 		const elem = blacklist[i];
-		if (message['content'].toLowerCase().includes(elem)) message.delete().then(message.channel.send(`${message.author} ai grijă la limbaj!`));
+		if (message['content'].toLowerCase().includes(elem)) {
+			if(!admin.includes(message.author["id"])) {
+				message.delete().then(message.channel.send(`${message.author} ${lang_t['forbidden_word']}`));
+			}
+		}
 	}
 
 	if (message.author.bot) return;
@@ -44,7 +53,7 @@ client.on('message', message => {
 	if(userInfo.xp > userInfo.level * 10) {
 		userInfo.level++
 		userInfo.xp = 0
-		message.channel.send(`${message.author} are acum level ${userInfo.level}`);
+		message.channel.send(`${message.author} ${lang_t['has_n_level']} ${userInfo.level}`);
 	}
 
 	fs.writeFile("./database.json", JSON.stringify(db), (x) => {
@@ -56,7 +65,7 @@ client.on('message', message => {
 			if(admin.includes(message.author["id"])) {
 				message.channel.send('Resetting...').then(msg => client.destroy()).then(() => client.login(botToken)).then(client.user.setActivity(activity));
 			}else{
-				message.channel.send(`N-ai admin`);
+				message.channel.send(`${lang_t['no_admin']}`);
 			};
 			break;
 		};
@@ -67,7 +76,7 @@ client.on('message', message => {
 				const Embed = new Discord.MessageEmbed()
 				.setTitle(`ℹ️ ${strawpoll}`)
 				.setColor('#4086bb')
-				.setFooter(`${message.author.username} a creat acest strawpoll`);
+				.setFooter(`${message.author.username} ${lang_t['strawpoll_owner']}`);
 
 				message.delete().then(async () => {
 					await message.channel.send(Embed).then(async message=> {
@@ -79,19 +88,19 @@ client.on('message', message => {
 			break;
 		};
 		case 'purge': {
-			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Nu ai acces la această comandă");
-			if (!args[0]) return message.reply("Folosește: !purge <număr>");
+			if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${lang_t['no_command_acc']}`);
+			if (!args[0]) return message.reply(`${lang_t['use']}: +purge <${lang_t['number']}>`);
 
 			if (Number.isInteger(parseInt(args[0]))) {
 				var amount = parseInt(args[0]);
 				if(amount > 0) {
 					message.channel.bulkDelete(amount).then(() => {
 						if (args[0] === '1') {
-							message.channel.send(`Au fost șterse ${args[0]} mesaje`).then(msg => msg.delete({ 
+							message.channel.send(`${lang_t['deleted']} ${args[0]} ${lang_t['messagess']}`).then(msg => msg.delete({ 
 								timeout: 3000 
 							}));
 						} else {
-							message.channel.send(`Au fost șterse ${args[0]} mesaje`).then(msg => msg.delete({
+							message.channel.send(`${lang_t['deleted']} ${args[0]} ${lang_t['messagess']}`).then(msg => msg.delete({
 								timeout: 3000
 							}));
 						};
@@ -103,18 +112,18 @@ client.on('message', message => {
 			break;
 		};
 		case 'ping': {
-			message.channel.send(`**PONG! 🏓 Latenţă: ${client.ws.ping}ms**`);
+			message.channel.send(`**PONG! 🏓 ${lang_t['latency']}: ${client.ws.ping}ms**`);
 			break;
 		};
 		case 'infobot': {
 			let Embed = new Discord.MessageEmbed()
-			.setTitle("Informații BOT")
+			.setTitle(`${lang_t['bot_info']}`)
 			.setThumbnail(client.user.displayAvatarURL())
-			.addField("Nume bot", client.user.username)
-			.addField("Creat pe data de", client.user.createdAt)
-			.addField("Creat folosind", "JavaScript, NodeJS, discord.js", true)
-			.addField("Creat de", "Adryan#0870", true)
-			.addField("Versiunea botului", versiune, true)
+			.addField(`${lang_t['bot_name']}:`, client.user.username)
+			.addField(`${lang_t['created_at']}:`, client.user.createdAt)
+			.addField(`${lang_t['c_using']}:`, "NodeJS", true)
+			.addField(`${lang_t['created']}:`, "Adryan#6969", true)
+			.addField(`${lang_t['bot_version']}:`, versiune, true)
 			.setTimestamp()
 			.setFooter(`Requested by ${message.author.tag}`, message.author.displayAvatarURL());
 			
@@ -186,7 +195,7 @@ client.on('message', message => {
 							if(err){ 
 								console.log(err);
 							}else{
-								message.channel.send(`Duma a fost adăugată cu succes`);
+								message.channel.send(`${lang_t['succ_dum']}`);
 							}
 						});
 					}
@@ -197,9 +206,9 @@ client.on('message', message => {
 		case 'prost': {
 			if(args[0]) {
 				const name = message.mentions.users.first();
-				message.channel.send(`${name} este ${Math.floor(Math.random() * Math.floor(100))}% prost`);
+				message.channel.send(`${name} ${lang_t['is']} ${Math.floor(Math.random() * Math.floor(100))}% ${lang_t['dumbass']}`);
 			}else{
-				message.channel.send(`${message.author} esti ${Math.floor(Math.random() * Math.floor(100))}% prost`);
+				message.channel.send(`${message.author} ${lang_t['you_are']} ${Math.floor(Math.random() * Math.floor(100))}% ${lang_t['dumbass']}`);
 			};
 			break;
 		};
@@ -216,37 +225,17 @@ client.on('message', message => {
 			};
 			break;
 		};
-		case 'idle': {
-			if(admin.includes(message.author["id"])) {
-				client.user.setStatus('idle');
-				console.log(`${message.member} a folosit comanda !idle`);
-				fs.appendFileSync('logs.txt', `${message.member} a folosit comanda !idle
-	`, function (err) {
-					if (err) return console.log(err);
-					console.log(`${message.member} a încercat să folosească comanda !idle > logs.txt `);
-				});
-			}else{
-				message.channel.send(`${message.member} nu ai functia de Administrator`);
-				console.log(`${message.member} a încercat să folosească comanda !idle`);
-				fs.appendFileSync('logs.txt', `${message.member} a încercat să folosească comanda !idle
-	`, function (err) {
-					if (err) return console.log(err);
-					console.log(`${message.member} a încercat să folosească comanda !idle > logs.txt `);
-				});
-			};
-			break;
-		};
 
 		case 'ban': {
 			if(args[0]) {
 				var membru = message.mentions.members.first();
 				if(message.member.hasPermission('BAN_MEMBERS')) {
 					membru.ban().then((member) => {
-						message.channel.send(`:wave: ${member.displayName} a fost banat cu succes de către :point_right: ${message.member}`);
+						message.channel.send(`:wave: ${member.displayName} ${lang_t['banned_by']} :point_right: ${message.member}`);
 					});
 				}
 			}else{
-				message.channel.send(`Folosește comanda !ban {nume} pentru a bana un membru.`);
+				message.channel.send(`${lang_t['use_command']} !ban {${lang_t['name']}} ${lang_t['for_ban']}`);
 			};
 			break;
 		};
@@ -256,23 +245,17 @@ client.on('message', message => {
 				var membru = message.mentions.members.first();
 				if(message.member.hasPermission('KICK_MEMBERS')) {
 					membru.kick().then((member) => {
-						message.channel.send(`:wave: ${member.displayName} a primit kick de la :point_right: ${message.member}`);
+						message.channel.send(`:wave: ${member.displayName} ${lang_t['kicked_by']} :point_right: ${message.member}`);
 					});
 				}
 			}else{
-				message.channel.send(`Folosește comanda !kick {nume} pentru a putea da kick unui membru.`);
+				message.channel.send(`${lang_t['use_command']} !kick {${lang_t['name']}} ${lang_t['for_kick']}`);
 			};
 			break;
 		};
 
 	};
 
-});
-
-client.on('guildMemberAdd', member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
-	if (!channel) return;
-	channel.send(`Salutare, ${member} și bine ai venit pe serverul nostru!`);
 });
 
 client.login(botToken);
