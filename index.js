@@ -31,7 +31,9 @@ client.on('ready', () => {
 client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(' ');
 	const command = args.shift().toLowerCase();
-
+	
+	if (!message.content.startsWith(prefix)) return;
+	
 	for (let i = 0; i < blacklist.length; i++) {
 		const elem = blacklist[i];
 		if (message['content'].toLowerCase().includes(elem)) {
